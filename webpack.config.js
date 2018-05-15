@@ -28,11 +28,24 @@ module.exports = {
                 }
             },
             {
-                test: /\.css$/,
-                exclude: /node_modules/,
+                test: /\.scss$/,
                 use: [
                     'vue-style-loader',
-                    'css-loader'
+                    'css-loader',
+                    'sass-loader',
+                ]
+            },
+            {
+                test: /\.pug$/,
+                loader: 'pug-plain-loader'
+            },
+            // To remove soon
+            {
+                test: /\.css$/,
+                use: [
+                    'vue-style-loader',
+                    'css-loader',
+                    'sass-loader',
                 ]
             },
             {
@@ -40,9 +53,6 @@ module.exports = {
                 use: [
                     {
                         loader: 'url-loader',
-                        options: {
-                            limit: 8192
-                        }
                     }
                 ]
             }
